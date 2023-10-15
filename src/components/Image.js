@@ -6,34 +6,34 @@ const Image = ({ image }) => {
   const [imageAdditional, setImageAdditional] = useState(null);
   const [infoCache, setInfoCache] = useState({});
 
-  const fetchData = async (id) => {
-    if (infoCache[id]) {
-      setImageAdditional(infoCache[id]);
-    } else {
-      try {
-        const additionalInfoResponse = await fetch(
-          `https://picsum.photos/id/${id}/info`
-        );
-        if (additionalInfoResponse.status === 200) {
-          const additionalInfo = await additionalInfoResponse.json();
-          setImageAdditional(additionalInfo);
-          setInfoCache({ ...infoCache, [id]: additionalInfo });
-        } else {
-          toast.error("Error fetching API");
-          console.error("HTTP error:", additionalInfoResponse.status);
-        }
-      } catch (error) {
-        toast.error(error);
-        console.error(error);
-      }
-    }
-  };
-
   useEffect(() => {
+    const fetchData = async (id) => {
+      if (infoCache[id]) {
+        setImageAdditional(infoCache[id]);
+      } else {
+        try {
+          const additionalInfoResponse = await fetch(
+            `https://picsum.photos/id/${id}/info`
+          );
+          if (additionalInfoResponse.status === 200) {
+            const additionalInfo = await additionalInfoResponse.json();
+            setImageAdditional(additionalInfo);
+            setInfoCache({ ...infoCache, [id]: additionalInfo });
+          } else {
+            toast.error("Error fetching API");
+            console.error("HTTP error:", additionalInfoResponse.status);
+          }
+        } catch (error) {
+          toast.error(error);
+          console.error(error);
+        }
+      }
+    };
+
     if (showModal) {
       fetchData(image.id);
     }
-  }, [image.id, infoCache, showModal]);
+  }, [showModal, image.id, infoCache]);
 
   const getAdditionalInfo = () => {
     setShowModal(true);
@@ -80,6 +80,7 @@ const Image = ({ image }) => {
               </div>
               <div className="img-details">
                 <img
+                  alt={`Taken by ${image.author}`}
                   src={imageAdditional.download_url}
                   style={{ width: "100%", height: "100%" }}
                 />
