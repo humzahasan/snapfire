@@ -64,7 +64,6 @@ h3 {
 }
 
 .image-container {
-  max-width: 300px;
   padding: 16px;
   background-color: var(--light-color);
   border-radius: 8px;
@@ -133,4 +132,15 @@ h3 {
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   text-align: left !important;
+}
+
+@media (max-width: 768px) {
+  .images-grid,.info-modal-body {
+    grid-template-columns: 1fr;
+  }
+
+  .image-info-container {
+    width: 100%;
+  }
+
 }

@@ -49,7 +49,7 @@ const Image = ({ image }) => {
   };
 
   return (
-    <div key={image.id} className="image-container" onClick={getAdditionalInfo}>
+    <div key={image.id} className="image-container img-container" onClick={getAdditionalInfo}>
       <img
         className="image-view"
         src={image.download_url}
