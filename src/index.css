@@ -1,0 +1,136 @@
+:root {
+  --primary-color: #fa461e;
+  --secondary-color: #6266f5;
+  --light-color: #ffbaab;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Lora", sans-serif;
+}
+
+.primary-color-text {
+  color: var(--primary-color);
+}
+
+.secondary-color-text {
+  color: var(--secondary-color);
+}
+
+.black-color-text {
+  color: #000000;
+}
+
+.light-color-text {
+  color: var(--light-color);
+}
+
+.header {
+  padding: 16px 0;
+  text-align: center;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
+}
+
+.header-title {
+  margin: 0;
+  font-size: 32px;
+}
+
+.gallery-container {
+  padding: 24px;
+  max-width: 1280px;
+  margin: 0 auto;
+  /* position: relative; */
+}
+
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.image-container {
+  max-width: 300px;
+  padding: 16px;
+  background-color: var(--light-color);
+  border-radius: 8px;
+  aspect-ratio: 1;
+}
+
+.image-container:hover {
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.image-view {
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-info-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  text-align: center;
+  z-index: 1;
+}
+
+.image-info-container {
+  background-color: #fff;
+  color: #000000;
+  height: auto;
+  width: 50%;
+  border-radius: 8px;
+  border: 1px solid black;
+  padding: 24px;
+}
+
+.img-details > img {
+  max-width: 300px;
+  /* aspect-ratio: 1; */
+}
+
+.image-info > p {
+  margin-bottom: 8px;
+}
+
+.info-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--light-color);
+}
+
+.info-modal-body {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  text-align: left !important;
+}
